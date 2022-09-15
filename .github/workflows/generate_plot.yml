@@ -33,7 +33,7 @@ jobs:
       - name: Generate Rainfall plot
         run: |
           mkdir output
-          python main.py -t0 ${{github.event.inputs.start_date}} -t1 ${{github.event.inputs.end_date}} --airport ${{github.event.inputs.airport}}
+          python rainfall_grapher/main.py/main.py -t0 ${{github.event.inputs.start_date}} -t1 ${{github.event.inputs.end_date}} --airport ${{github.event.inputs.airport}}
 
       - name: Store artifacts
         uses: actions/upload-artifact@v2
