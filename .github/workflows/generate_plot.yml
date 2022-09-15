@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
         with:
@@ -32,7 +33,6 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Generate Rainfall plot
-        uses: actions/checkout@v2
         run: |
           mkdir output
           pwd
