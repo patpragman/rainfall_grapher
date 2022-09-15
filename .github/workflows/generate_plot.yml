@@ -32,6 +32,7 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Generate Rainfall plot
+        uses: actions/checkout@v2
         run: |
           mkdir output
           pwd
