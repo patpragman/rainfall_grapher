@@ -35,7 +35,7 @@ jobs:
         run: |
           mkdir output
           pwd
-          python main.py -t0 ${{github.event.inputs.start_date}} -t1 ${{github.event.inputs.end_date}} --airport ${{github.event.inputs.airport}}
+          python /home/runner/work/rainfall_grapher/main.py -t0 ${{github.event.inputs.start_date}} -t1 ${{github.event.inputs.end_date}} --airport ${{github.event.inputs.airport}}
 
       - name: Store artifacts
         uses: actions/upload-artifact@v2
