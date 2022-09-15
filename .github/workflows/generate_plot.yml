@@ -5,14 +5,15 @@ on:
   workflow_dispatch:
     inputs:
       airport:
-        description: 'ICAO Airport Code'
-        default: ''
+        description: ICAO Airport Code
+
       start_date:
-        description: 'Date to start (y/m/d) - e.g. 2000-01-01'
-        default: '2000-01-01'
+        description: Date to start (y/m/d) - e.g. 2000-01-01
+        default: 2000-01-01
+
       end_date:
-        description: 'Date to end (y/m/d) - e.g. 2020-12-01'
-        default: '2022-09-13'
+        description: Date to end (y/m/d) - e.g. 2020-12-01
+        default: 2022-09-13
 
 jobs:
   plot:
@@ -20,12 +21,12 @@ jobs:
 
     steps:
       - name: Setup Python
-        - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Set up Python 3.10
-          uses: actions/setup-python@v3
-          with:
-            python-version: "3.10"
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
 
       - name: Install dependencies
         run: |
@@ -38,7 +39,7 @@ jobs:
           python main.py -t0 ${{github.event.inputs.start_date}} -t1 ${{github.event.inputs.end_date}} --airport ${{github.event.inputs.airport}}
 
       - name: Store artifacts
-          uses: actions/upload-artifact@v2
-          with:
-          name: ${{github.event.inputs.airport}}-precip
-          path: output
+        uses: actions/upload-artifact@v2
+        with:
+         name: ${{github.event.inputs.airport}}-precip
+         path: output
