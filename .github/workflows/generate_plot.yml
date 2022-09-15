@@ -33,7 +33,6 @@ jobs:
 
       - name: Generate Rainfall plot
         run: |
-          cd /
           mkdir output
           pwd
           python main.py -t0 ${{github.event.inputs.start_date}} -t1 ${{github.event.inputs.end_date}} --airport ${{github.event.inputs.airport}}
